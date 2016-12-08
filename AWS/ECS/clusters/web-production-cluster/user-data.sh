@@ -25,7 +25,7 @@ python27 get-pip.py
 /usr/local/bin/pip install --upgrade awscli
 
 # Grab all configuration files from S3.
-su - ec2-user -c "aws s3 cp s3://ricochet-pos-web-settings/production /home/ec2-user/ricochet-pos-web-settings/production --recursive"
+su - ec2-user -c "aws s3 cp s3://ricochet-web-settings/production /home/ec2-user/ricochet-web-settings/production --recursive"
 
 # Install the Simple Systems Manager (SSM) for the Amazon EC2 Run Command to manage EC2 instances remotely.
 curl https://amazon-ssm-us-west-2.s3.amazonaws.com/latest/linux_amd64/amazon-ssm-agent.rpm -o amazon-ssm-agent.rpm
