@@ -3,13 +3,13 @@
   "volumes": [
     {
       "host": {
-        "sourcePath": "/home/ec2-user/ricoconsign-pos-web-settings/production/ricoconsign-pos-codeigniter/public/application/config/database.php"
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-pos-codeigniter/public/application/config/database.php"
       },
       "name": "VolumeRicoconsignPosDatabase"
     },
     {
       "host": {
-        "sourcePath": "/home/ec2-user/ricoconsign-pos-web-settings/production/ricoconsign-pos-codeigniter/public/application/config/s3.php"
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-pos-codeigniter/public/application/config/s3.php"
       },
       "name": "VolumeRicoconsignPosS3"
     }
