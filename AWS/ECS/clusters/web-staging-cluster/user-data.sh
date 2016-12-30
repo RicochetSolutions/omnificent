@@ -35,4 +35,4 @@ yum install -y amazon-ssm-agent.rpm
 su - ec2-user -c "aws ec2 create-tags --region=us-west-2 --resources `curl http://169.254.169.254/latest/meta-data/instance-id` --tags 'Key=Name,Value=web-staging-cluster SPOT (Fleet)'"
 
 # Associate the staging Elastic IP address.
-#su - ec2-user -c "aws ec2 associate-address --region=us-west-2 --instance-id `curl http://169.254.169.254/latest/meta-data/instance-id` --allocation-id eipalloc-d5234ab1"
+su - ec2-user -c "aws ec2 associate-address --region=us-west-2 --instance-id `curl http://169.254.169.254/latest/meta-data/instance-id` --allocation-id eipalloc-27247a40"
