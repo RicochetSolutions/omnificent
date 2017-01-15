@@ -3,19 +3,25 @@
   "volumes": [
     {
       "host": {
-        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/blog/wp-config.php"
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/config/database.php"
+      },
+      "name": "VolumeRicoconsignWebsiteDatabase"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/blog/wp-config.php"
       },
       "name": "VolumeRicoconsignWebsiteBlog"
     },
     {
       "host": {
-        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/store/wp-config.php"
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/store/wp-config.php"
       },
       "name": "VolumeRicoconsignWebsiteStore"
     },
     {
       "host": {
-        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/support/wp-config.php"
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/support/wp-config.php"
       },
       "name": "VolumeRicoconsignWebsiteSupport"
     }
@@ -59,6 +65,10 @@
       },
       "memory": 100,
       "mountPoints": [
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteDatabase",
+          "containerPath": "/var/www/html/public/config/database.php"
+        },
         {
           "sourceVolume": "VolumeRicoconsignWebsiteBlog",
           "containerPath": "/var/www/html/public/blog/wp-config.php"
