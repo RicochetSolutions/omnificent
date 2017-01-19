@@ -3,6 +3,12 @@
   "volumes": [
     {
       "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/config/aws.php"
+      },
+      "name": "VolumeRicoconsignWebsiteAws"
+    },
+    {
+      "host": {
         "sourcePath": "/home/ec2-user/ricochet-web-settings/production/ricoconsign-website/public/config/database.php"
       },
       "name": "VolumeRicoconsignWebsiteDatabase"
@@ -65,6 +71,10 @@
       },
       "memory": 100,
       "mountPoints": [
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteAws",
+          "containerPath": "/var/www/html/public/config/aws.php"
+        },
         {
           "sourceVolume": "VolumeRicoconsignWebsiteDatabase",
           "containerPath": "/var/www/html/public/config/database.php"
