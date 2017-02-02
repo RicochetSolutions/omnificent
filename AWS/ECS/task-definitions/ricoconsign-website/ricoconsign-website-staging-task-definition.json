@@ -1,0 +1,98 @@
+{
+  "family": "ricoconsign-website-staging-task-definition",
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/staging/ricoconsign-website/public/config/aws.php"
+      },
+      "name": "VolumeRicoconsignWebsiteAws"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/staging/ricoconsign-website/public/config/database.php"
+      },
+      "name": "VolumeRicoconsignWebsiteDatabase"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/staging/ricoconsign-website/public/blog/wp-config.php"
+      },
+      "name": "VolumeRicoconsignWebsiteBlog"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/staging/ricoconsign-website/public/store/wp-config.php"
+      },
+      "name": "VolumeRicoconsignWebsiteStore"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/staging/ricoconsign-website/public/support/wp-config.php"
+      },
+      "name": "VolumeRicoconsignWebsiteSupport"
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "essential": true,
+      "image": "ricochetsolutions/ricoconsign-website-apache-php:latest",
+      "logConfiguration": {
+        "logDriver": "json-file",
+        "options": {
+          "max-size": "50m"
+        }
+      },
+      "memory": 200,
+      "name": "RicoconsignWebsiteApachePhp",
+      "portMappings": [
+        {
+          "hostPort": 50002,
+          "containerPort": 80
+        },
+        {
+          "hostPort": 50003,
+          "containerPort": 443
+        }
+      ],
+      "volumesFrom": [
+        {
+          "sourceContainer": "RicoconsignWebsite"
+        }
+      ]
+    },
+    {
+      "essential": true,
+      "image": "ricochetsolutions/ricoconsign-website:%REVISION%",
+      "logConfiguration": {
+        "logDriver": "json-file",
+        "options": {
+          "max-size": "50m"
+        }
+      },
+      "memory": 100,
+      "mountPoints": [
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteAws",
+          "containerPath": "/var/www/html/public/config/aws.php"
+        },
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteDatabase",
+          "containerPath": "/var/www/html/public/config/database.php"
+        },
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteBlog",
+          "containerPath": "/var/www/html/public/blog/wp-config.php"
+        },
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteStore",
+          "containerPath": "/var/www/html/public/store/wp-config.php"
+        },
+        {
+          "sourceVolume": "VolumeRicoconsignWebsiteSupport",
+          "containerPath": "/var/www/html/public/support/wp-config.php"
+        }
+      ],
+      "name": "RicoconsignWebsite"
+    }
+  ]
+}
