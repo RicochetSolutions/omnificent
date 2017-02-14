@@ -42,7 +42,7 @@
           "max-size": "50m"
         }
       },
-      "memory": 2000,
+      "memory": 1000,
       "name": "RicoconsignWebsiteApachePhp",
       "portMappings": [
         {
