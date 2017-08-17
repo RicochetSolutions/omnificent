@@ -12,6 +12,12 @@
         "sourcePath": "/home/ec2-user/ricochet-web-settings/dev/ricoconsign-pos-codeigniter/public/application/config/s3.php"
       },
       "name": "VolumeRicoconsignPosS3"
+    },
+    {
+      "host": {
+        "sourcePath": "/home/ec2-user/ricochet-web-settings/dev/ricoconsign-pos-codeigniter/public/application/config/paypal.php"
+      },
+      "name": "VolumeRicoconsignPosPaypal"
     }
   ],
   "containerDefinitions": [
@@ -60,6 +66,10 @@
         {
           "sourceVolume": "VolumeRicoconsignPosS3",
           "containerPath": "/var/www/html/public/application/config/s3.php"
+        },
+        {
+          "sourceVolume": "VolumeRicoconsignPosPaypal",
+          "containerPath": "/var/www/html/public/application/config/paypal.php"
         }
       ],
       "name": "RicoconsignPosCodeIgniter"
